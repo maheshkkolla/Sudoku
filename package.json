@@ -1,0 +1,10 @@
+{
+	"name" : "Sudoku",
+	"main" : "sudoku.html",
+	"window" : {
+		"width": 700,
+		"height": 650,
+		"resizable": false		
+
+	}
+}
