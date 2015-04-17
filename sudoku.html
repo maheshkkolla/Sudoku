@@ -2,6 +2,7 @@
 <head>
 	<title>Sudoku</title>
 	<script type="text/javascript" src = "./JS/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src = "./JS/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./CSS/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
 	<script type="text/javascript" src = "./JS/board.js"></script>
@@ -17,6 +18,15 @@
 
 		<div class = "container">
 			<span class = "btn btn-primary" onclick = "generateNewGame()"> Generate Sudoku</span>
+		</div>
+	</div>
+	<div id = "hidden"></div>
+	<div id = "numbersModal" class = "modal fade">
+		<div class = "modal-dialog"> 
+			<div class="modal-content">
+				<div class="modal-body" id="numbersModalBody">
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
