@@ -2,6 +2,76 @@ p{
 	margin:-10px;
 }
 
-.mybtn{
-	color:blue;
+#levels{
+	width:100px;
 }
+
+#loading{
+	top:20%;
+	left:35%;
+	width:30%;
+}
+
+#loadingModal{
+	background-color: lightgray;
+}
+
+.btn-wrong{
+	border: 1px solid red;
+	background-color: white;
+}
+
+.myBodyClass {
+	background-image:url("../images/sudoku.jpg");
+}
+
+.btn:disabled{
+	opacity: 1.0;
+}
+.mybtn{
+	background:black;
+	width:100%;
+}
+
+.mybtn:hover {
+	cursor: default;
+}
+
+.menuItem{
+	background:black;
+	color:white;
+	border-right: 1px solid white;
+
+}
+
+.menuItem:hover {
+	color:cyan;
+}
+
+#saveGame {
+	top:25%;
+	left:25%;
+	width:50%;
+}
+#loadGame{
+	top: 10%;
+	left: 25%;
+	width:50%;
+}
+
+.text-danger {
+	display:none;
+}
+
+.list{
+	color:mediumblue;
+}
+
+.list:hover {
+	cursor: hand;
+	text-decoration: underline;
+}
+
+
+
+

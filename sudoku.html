@@ -5,22 +5,37 @@
 	<script type="text/javascript" src = "./JS/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./CSS/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./CSS/style.css">
-	<script type="text/javascript" src = "./JS/board.js"></script>
 	<script type="text/javascript" src = "./JS/game.js"></script>
+	<script type="text/javascript" src = "./JS/generator.js"></script>
+	<script type="text/javascript" src = "./JS/solver.js"></script>
 </head>
-<body class = "bg-warning">
-	<div class = "container">
-		<div class = "jombotron lead">
-			<h1 class = "text-center">SUDOKU</h1>
+<body class = "myBodyClass">
+	<div class = "container my-container">
+		<div class = "btn mybtn">
+			<img src="./images/logo.png"></img>
+			<div class = "btn-group"><span class = "btn menuItem dropdown-toggle" data-toggle="dropdown"> 
+				Generate Sudoku <span class="caret"></span></span>
+				<ul class="dropdown-menu">
+					<li ><a onclick="generateNewGame(50)"class="btn btn-lg">Easy</a></li>
+					<li ><a onclick="generateNewGame(75)"class="btn btn-lg">Medium</a></li>
+					<li ><a onclick="generateNewGame(100)" class="btn btn-lg">Hard</a></li>
+				</ul>
+			</div>
+			<span class = "btn menuItem" id = "saveGameBtn" onclick="openSaveGameDialog()">Save Game</span>
+			<span class = "btn menuItem" onclick="openLoadGameDialog()">Load Game</span>
 		</div><hr>
 
-		<div class = "container text-center" id = "board"> </div><hr>
-
-		<div class = "container">
-			<span class = "btn btn-primary" onclick = "generateNewGame()"> Generate Sudoku</span>
-		</div>
+		<div class = "button-group text-center" id = "board"> </div>
+		<hr>
+		<center class = "container">
+			<span class = "btn btn-primary" id="check" onclick = "checkAnswer()">Check Answer</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span class = "btn btn-primary" id="solve" onclick = "showOrHide()">Show Answer</span>
+		</center>
 	</div>
-	<div id = "hidden"></div>
+	
+	<div id = "hiddenNumber"></div>
+
 	<div id = "numbersModal" class = "modal fade">
 		<div class = "modal-dialog"> 
 			<div class="modal-content">
@@ -29,5 +44,49 @@
 			</div>
 		</div>
 	</div>
+
+	<div  id = "loading" class="modal js-loading-bar">
+		<div class="modal-dialog">
+ 			<div class="modal-content" id="loadingModal">
+     			<div class="modal-body">Loading...
+     				<div class="progress">
+     					<div class="progress-bar progress-bar-striped active" style="width: 100%"></div>
+  					</div>
+  				</div>
+   			</div>
+ 		</div>
+	</div>
+
+	<div id = "saveGame" class = "modal fade">
+		<div class = "modal-dialog"> 
+			<div class="modal-content">
+				<div class="modal-header"><b>Save Game</b></div>
+				<div class="modal-body"> 
+					Give a name to save status of the game <br>
+					<form>
+						<input type="text" id = "name"><br>
+						<span class="text-danger" id="errMssg">Required name to save</span>
+					</form>
+					<button class="btn btn-danger" onclick="cancel('saveGame')"> Cancel </button>
+					<button class="btn btn-primary" onclick="saveGame()"> Save </button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id = "loadGame" class = "modal fade">
+		<div class = "modal-dialog"> 
+			<div class="modal-content">
+				<div class="modal-header"><b>Load Saved Game</b></div>
+				<div class="modal-body"> 
+						Click on the name to load that Game: 
+						<ul id="listOfSavedGames"></ul>
+						<span class="btn btn-danger" onclick="cancel('loadGame')">Cancel</span>				
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
